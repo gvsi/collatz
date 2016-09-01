@@ -37,4 +37,5 @@ before_script:
 
 script:
     - date
-    - make tests
+    - ls -al
+    - make test

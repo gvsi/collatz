@@ -154,4 +154,29 @@ status:
 	git remote -v
 	git status
 
+versions:
+	which make
+	make --version
+	@echo
+	which git
+	git --version
+	@echo
+	which $(CXX)
+	$(CXX) --version
+	@echo
+	ls -ald $(INCLUDE)/boost
+	@echo
+	ls -ald $(INCLUDE)/gtest
+	@echo
+	ls -al $(LIB)/*gtest*
+	@echo
+	which $(GCOV)
+	$(GCOV) --version
+	@echo
+	which $(VALGRIND)
+	$(VALGRIND) --version
+	@echo
+	which $(DOXYGEN)
+	$(DOXYGEN) --version
+
 test: html Collatz.log RunCollatz.tmp TestCollatz.tmp collatz-tests check
