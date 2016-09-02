@@ -55,7 +55,7 @@ int collatz_eval (int i, int j) {
     }
     assert(min <= max);
     int max_length = 1;
-    for (int n = i; n <= j; n++) {
+    for (int n = min; n <= max; n++) {
       int length = cycle_length(n);
       if (length > max_length)
         max_length = length;
