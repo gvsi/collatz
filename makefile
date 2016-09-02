@@ -190,3 +190,8 @@ ifneq ($(shell uname -p), unknown) # Docker
 	which $(CLANG-FORMAT)
 	$(CLANG-FORMAT) --version
 endif
+
+uva: Collatz.h Collatz.c++ RunCollatz.c++
+	cat Collatz.h Collatz.c++ RunCollatz.c++ \
+	| sed -n "/^#include \"Collatz\\.h\"$\/!p" \
+	> UVaCollatz.c++
