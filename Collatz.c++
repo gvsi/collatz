@@ -45,14 +45,22 @@ int cycle_length(int n) {
 // ------------
 
 int collatz_eval (int i, int j) {
-    assert(i <= j);
-    int max = 1;
+    int max, min;
+    if (i > j) {
+      max = i;
+      min = j;
+    } else {
+      max = j;
+      min = i;
+    }
+    assert(min <= max);
+    int max_length = 1;
     for (int n = i; n <= j; n++) {
       int length = cycle_length(n);
-      if (length > max)
-        max = length;
+      if (length > max_length)
+        max_length = length;
     }
-    return max;}
+    return max_length;}
 
 // -------------
 // collatz_print
