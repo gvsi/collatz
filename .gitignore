@@ -1,1 +1,15 @@
 .DS_Store
+*.dSYM
+*.gcda
+*.gcno
+*.gcov
+*.plist
+collatz-tests
+Icon?
+RunCollatz
+RunCollatz.tmp
+TestCollatz
+TestCollatz.tmp
+UVaCollatz.c++
+Doxyfile
+doxygen_sqlite3.db
