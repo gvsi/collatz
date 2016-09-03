@@ -1,3 +1,5 @@
+.DEFAULT_GOAL := test
+
 FILES :=                              \
     Collatz.c++                       \
     Collatz.h                         \
@@ -50,7 +52,7 @@ else ifeq ($(shell uname -p), unknown)                               # Docker
     GCOVFLAGS    := -fprofile-arcs -ftest-coverage
     VALGRIND     := valgrind
     DOXYGEN      := doxygen
-    CLANG-FORMAT := clang-format
+    CLANG-FORMAT := clang-format-3.5
 else                                                                 # UTCS
     CXX          := g++-4.8
     INCLUDE      := /usr/include
@@ -79,12 +81,10 @@ Doxyfile:
 
 RunCollatz: Collatz.h Collatz.c++ RunCollatz.c++
 	$(CXX) $(CXXFLAGS) Collatz.c++ RunCollatz.c++ -o RunCollatz
-ifneq ($(shell uname -p), unknown)                                    # Docker
 	-$(CLANG-CHECK) -extra-arg=-std=c++11          Collatz.c++     --
 	-$(CLANG-CHECK) -extra-arg=-std=c++11 -analyze Collatz.c++     --
 	-$(CLANG-CHECK) -extra-arg=-std=c++11          RunCollatz.c++  --
 	-$(CLANG-CHECK) -extra-arg=-std=c++11 -analyze RunCollatz.c++  --
-endif
 
 RunCollatz.tmp: RunCollatz
 	./RunCollatz < RunCollatz.in > RunCollatz.tmp
@@ -92,10 +92,8 @@ RunCollatz.tmp: RunCollatz
 
 TestCollatz: Collatz.h Collatz.c++ TestCollatz.c++
 	$(CXX) $(CXXFLAGS) $(GCOVFLAGS) Collatz.c++ TestCollatz.c++ -o TestCollatz $(LDFLAGS)
-ifneq ($(shell uname -p), unknown)                                    # Docker
 	-$(CLANG-CHECK) -extra-arg=-std=c++11          TestCollatz.c++ --
 	-$(CLANG-CHECK) -extra-arg=-std=c++11 -analyze TestCollatz.c++ --
-endif
 
 TestCollatz.tmp: TestCollatz
 	$(VALGRIND) ./TestCollatz                               >  TestCollatz.tmp 2>&1
@@ -171,11 +169,9 @@ versions:
 	ls -ald $(INCLUDE)/gtest
 	@echo
 	ls -al $(LIB)/*gtest*
-ifneq ($(shell uname -p), unknown) # Docker
 	@echo
 	which $(CLANG-CHECK)
 	$(CLANG-CHECK) --version
-endif
 	@echo
 	which $(GCOV)
 	$(GCOV) --version
@@ -185,11 +181,9 @@ endif
 	@echo
 	which $(DOXYGEN)
 	$(DOXYGEN) --version
-ifneq ($(shell uname -p), unknown) # Docker
 	@echo
 	which $(CLANG-FORMAT)
 	$(CLANG-FORMAT) --version
-endif
 
 uva: Collatz.h Collatz.c++ RunCollatz.c++
 	cat Collatz.h Collatz.c++ RunCollatz.c++ \

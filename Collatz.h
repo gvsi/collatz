@@ -13,7 +13,6 @@
 
 #include <iostream> // istream, ostream
 #include <string>   // string
-#include <utility>  // pair
 
 using namespace std;
 
@@ -37,7 +36,7 @@ bool collatz_read (istream& r, int& i, int& j);
 /**
  * @param i the beginning of the range, inclusive
  * @param j the end       of the range, inclusive
- * @return the max cycle length of the range [i, j)
+ * @return the max cycle length of the range [i, j]
  */
 int collatz_eval (int i, int j);
 
