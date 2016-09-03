@@ -11,6 +11,7 @@
 #include <cassert>  // assert
 #include <iostream> // endl, istream, ostream
 #include <vector>
+#include <stdint.h>
 
 #include "Collatz.h"
 
@@ -28,28 +29,32 @@ bool collatz_read (istream& r, int& i, int& j) {
     r >> j;
     return true;}
 
-int cycle_length(int n) {
+int cycle_length(int64_t n) {
   // cout << "Calculating cycle_length of " << n << endl;
   assert(n > 0);
 
-  if (n > cache.size()) {
+  int c;
+  bool cacheFit = n < cache.size();
+
+  if (cacheFit && cache.at(n)) {
+    c = cache.at(n);
+    // cout << "Hit! cycle_length of " << n << endl;
+  } else {
     if ((n % 2) == 0) {
-      return 1 + cycle_length(n / 2);
+      c = 1 + cycle_length(n >> 1);
     } else {
-      return 2 + cycle_length((3 * n + 1) >> 1); // combines two steps
+      int64_t next = (3 * n + 1) >> 1; // combines two steps
+      c = 2 + cycle_length(next);
+    }
+
+    // Store value in cache, if it fits
+    if (cacheFit) {
+      cache.at(n) = c;
     }
   }
 
-  if (!cache.at(n)) {
-    if ((n % 2) == 0) {
-      cache.at(n) = 1 + cycle_length(n / 2);
-    } else {
-      cache.at(n) = 2 + cycle_length((3 * n + 1) >> 1); // combines two steps
-    }
-  }
-  int length = cache.at(n);
-  assert(length > 0);
-  return length;}
+  assert(c > 0);
+  return c;}
 
 // ------------
 // collatz_eval
@@ -66,6 +71,31 @@ int collatz_eval (int i, int j) {
     }
 
     cache[1] = 1;
+    cache[502441] = 198;
+    // cache[504057] = 258;
+    // cache[540542] = 417;
+    // cache[559785] =
+    // cache[581883] =
+    // cache[626331] =
+    // cache[630527] =
+    // cache[637950] =
+    // cache[655359] =
+    // cache[665215] =
+    // cache[687871] =
+    // cache[704511] =
+    // cache[747291] =
+    // cache[753663] =
+    // cache[763675] =
+    // cache[780391] =
+    // cache[829087] =
+    // cache[833775] =
+    // cache[839679] =
+    // cache[901119] =
+    // cache[906175] =
+    // cache[920559] =
+    // cache[937599] =
+    // cache[974079] =
+    // cache[975015] =
 
     assert(min <= max);
 
