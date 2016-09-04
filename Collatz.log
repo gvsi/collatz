@@ -1,0 +1,137 @@
+commit 84e5c2fdb893835b650bbfe3e31e8197c3af6546
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Sat Sep 3 23:50:11 2016 -0500
+
+    Add test files with UT EID
+
+commit ade51cfab5e9a19bb0fc858580f6ad74b1526984
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Sat Sep 3 23:48:22 2016 -0500
+
+    Update TestCollatz.out with latest output
+
+commit c41cd21c132aa7a1d8eddd1bae8ab41c841b957b
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Sat Sep 3 23:46:00 2016 -0500
+
+    Add more unit tests (closes #9)
+
+commit 81cc92f5744c4e38776ec57cb93dd7c5a277fcc2
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Sat Sep 3 23:45:25 2016 -0500
+
+    Add better acceptance tests (closes #8)
+
+commit de9e65c44c29c7a70c65426bcbae00dea25723f8
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Sat Sep 3 23:44:15 2016 -0500
+
+    Refactor cache (closes #7)
+
+commit 8c86a01d32a648c377424a9bf41169cf21739fcb
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Sat Sep 3 14:43:27 2016 -0500
+
+    Refactor cycle_length algorithm, use int64
+
+commit ffb8c5b914b372428ff0d33d8641ad77096d5641
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Sat Sep 3 11:43:14 2016 -0500
+
+    Update files from main repo
+
+commit 05d5f5ec0a86e0dc859ad28d230100fc2c242fca
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Sat Sep 3 11:28:05 2016 -0500
+
+    Add .gitignore, update test files
+
+commit c7a2e534ea0249663aba88a2106c838c48ad1d73
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Sat Sep 3 11:14:27 2016 -0500
+
+    Implement lazy cache (closes #6)
+
+commit 1340c75efd343c986352c483dcfe722bdd3e175c
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Fri Sep 2 09:28:19 2016 -0500
+
+    Add UVa makefile target
+
+commit b925fded2b553aff5505e51269130694e03aa6d3
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Fri Sep 2 09:22:17 2016 -0500
+
+    Fix looping bug
+
+commit 6d75c40cb5be7b7fa53bf9914094aa03c1c570da
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Fri Sep 2 09:21:06 2016 -0500
+
+    Fix range issue (fixes #4)
+
+commit d02dbc3e56c3f18e8237ce47034e37ccbddef59e
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Fri Sep 2 09:10:41 2016 -0500
+
+    Revert attempt to auto-merge
+
+commit d1f6c2454a21c8e0e8755377bfa8d1132b29fde7
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Wed Aug 31 21:32:05 2016 -0500
+
+    Add basic implementation
+
+commit 42492b1a6509f0459619e4c01d2bca5406895a96
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Wed Aug 31 20:29:00 2016 -0500
+
+    Add automerge to master with Travis
+
+commit 662ee54b2fc97adc3721efee7d16d84ea93bb8f7
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Wed Aug 31 19:59:45 2016 -0500
+
+    Update test to UVA results (fixes #3) [ci skip]
+
+commit d814a0fa51df10206edd5890ee9d368991d6d85d
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Wed Aug 31 19:59:12 2016 -0500
+
+    Fix indentation of makefile
+
+commit 57c16675347d9ffef2a50f445658af952b7c58b4
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Wed Aug 31 19:55:18 2016 -0500
+
+    Conform makefile to original repo
+
+commit 15197d63d6eb6a7e51104747a19c2c3d613d248d
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Wed Aug 31 19:27:38 2016 -0500
+
+    Add versions target to makefile
+
+commit 19f5eab2fae7d82f39d8f77721be371e70cf6aaf
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Wed Aug 31 19:20:11 2016 -0500
+
+    Add test make target to .travis.tml, create .gitignore
+
+commit a70c8ecf2b8232d5f3622a626ea32951da8e9957
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Wed Aug 31 18:09:55 2016 -0500
+
+    Add .travis.tml
+
+commit ab5403d3a1e9f918947df24ca009c9c680839104
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Wed Aug 31 17:53:35 2016 -0500
+
+    First commit
+
+commit 0c0afbbfbcc58359ba84d057ce0b862cd59e47c5
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Wed Aug 31 17:50:20 2016 -0500
+
+    Initial commit
