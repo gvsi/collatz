@@ -8,6 +8,9 @@
 // includes
 // --------
 
+#define LAZY_CACHE_OPT
+#define DOUBLE_ODD_STEP_OPT
+
 #include <cassert>  // assert
 #include <iostream> // endl, istream, ostream
 #include <vector>
@@ -17,11 +20,13 @@
 
 using namespace std;
 
+#ifdef DOUBLE_ODD_STEP_OPT
+vector<int> cache(1000001);
+#endif
+
 // ------------
 // collatz_read
 // ------------
-
-vector<int> cache(1000001);
 
 bool collatz_read(istream &r, int &i, int &j) {
   if (!(r >> i))
@@ -29,6 +34,11 @@ bool collatz_read(istream &r, int &i, int &j) {
   r >> j;
   return true;
 }
+
+/*!
+ * calculates the cycle length of a positive integer
+ * @param n a positive integer
+ */
 
 int cycle_length(int64_t n) {
   // cout << "Calculating cycle_length of " << n << endl;
@@ -54,7 +64,7 @@ int cycle_length(int64_t n) {
       c = 2 + cycle_length(next);
 #else
       next = (3 * n + 1); // combines two steps
-      c = 2 + cycle_length(next);
+      c = 1 + cycle_length(next);
 #endif
     }
 
