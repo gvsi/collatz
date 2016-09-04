@@ -54,6 +54,22 @@ TEST(CollatzFixture, eval_4) {
     const int v = collatz_eval(900, 1000);
     ASSERT_EQ(174, v);}
 
+TEST(CollatzFixture, eval_5) {
+    const int v = collatz_eval(687871, 687871);
+    ASSERT_EQ(380, v);}
+
+TEST(CollatzFixture, eval_6) {
+    const int v = collatz_eval(704511, 704511);
+    ASSERT_EQ(243, v);}
+
+TEST(CollatzFixture, eval_7) {
+    const int v = collatz_eval(747291, 747291);
+    ASSERT_EQ(248, v);}
+
+TEST(CollatzFixture, eval_8) {
+    const int v = collatz_eval(753663, 753663);
+    ASSERT_EQ(331, v);}
+
 // -----
 // print
 // -----
@@ -72,3 +88,15 @@ TEST(CollatzFixture, solve) {
     ostringstream w;
     collatz_solve(r, w);
     ASSERT_EQ("1 10 20\n100 200 125\n201 210 89\n900 1000 174\n", w.str());}
+
+TEST(CollatzFixture, solve_inverse) {
+    istringstream r("727364 50\n50 727364\n");
+    ostringstream w;
+    collatz_solve(r, w);
+    ASSERT_EQ("727364 50 509\n50 727364 509\n", w.str());}
+
+TEST(CollatzFixture, solve_max_range) {
+    istringstream r("1 1000000\n");
+    ostringstream w;
+    collatz_solve(r, w);
+    ASSERT_EQ("1 1000000 525\n", w.str());}
