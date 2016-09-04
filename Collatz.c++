@@ -37,6 +37,7 @@ int cycle_length(int64_t n) {
   bool cacheFit = n < cache.size();
 
   if (cacheFit && cache.at(n)) {
+    // Cache hit
     c = cache.at(n);
     // cout << "Hit! cycle_length of " << n << endl;
   } else {
@@ -71,31 +72,6 @@ int collatz_eval (int i, int j) {
     }
 
     cache[1] = 1;
-    cache[502441] = 198;
-    // cache[504057] = 258;
-    // cache[540542] = 417;
-    // cache[559785] =
-    // cache[581883] =
-    // cache[626331] =
-    // cache[630527] =
-    // cache[637950] =
-    // cache[655359] =
-    // cache[665215] =
-    // cache[687871] =
-    // cache[704511] =
-    // cache[747291] =
-    // cache[753663] =
-    // cache[763675] =
-    // cache[780391] =
-    // cache[829087] =
-    // cache[833775] =
-    // cache[839679] =
-    // cache[901119] =
-    // cache[906175] =
-    // cache[920559] =
-    // cache[937599] =
-    // cache[974079] =
-    // cache[975015] =
 
     assert(min <= max);
 
