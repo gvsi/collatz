@@ -5,6 +5,7 @@
 *.gcov
 *.plist
 Icon?
+collatz-tests
 RunCollatz
 RunCollatz.tmp
 TestCollatz

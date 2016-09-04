@@ -10,10 +10,10 @@ FILES :=                              \
     RunCollatz.out                    \
     TestCollatz.c++                   \
     TestCollatz.out										\
-   	collatz-tests/gca386-RunCollatz.in   \
-   	collatz-tests/gca386-RunCollatz.out  \
-   	collatz-tests/gca386-TestCollatz.c++ \
-   	collatz-tests/gca386-TestCollatz.out \
+   # 	collatz-tests/gca386-RunCollatz.in   \
+   # 	collatz-tests/gca386-RunCollatz.out  \
+   # 	collatz-tests/gca386-TestCollatz.c++ \
+   # 	collatz-tests/gca386-TestCollatz.out \
 
 ifeq ($(shell uname), Darwin)                                        # Apple
     CXX          := g++
