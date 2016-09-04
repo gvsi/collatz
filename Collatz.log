@@ -1,3 +1,39 @@
+commit 86f9c6c67788ccf7bcc967417a678e87bf796f95
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Sun Sep 4 15:57:51 2016 -0500
+
+    Revert .gitignore
+
+commit 2cfc80830259e68b4a8015a747ad5b86e533a67c
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Sun Sep 4 15:55:04 2016 -0500
+
+    Update .gitignore (includes collatz-tests)
+
+commit b31284b1e87d4a9f5e8655d595258617d6240455
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Sun Sep 4 15:46:11 2016 -0500
+
+    Update acceptance tests
+
+commit ba24d362a318b265afc3537aa740d08ad2df4738
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Sun Sep 4 15:46:01 2016 -0500
+
+    Format with clang, update Dockerfile
+
+commit cb20a1d19fa914fd8ff8e31e79611dc9c10c00ad
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Sun Sep 4 15:45:13 2016 -0500
+
+    Move test file into ignored directory
+
+commit 6e50424c389888695e7414c6faed4cd687345ac1
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Sun Sep 4 15:44:23 2016 -0500
+
+    Tag optimizations, clang-format (closes #10 and #11)
+
 commit 84e5c2fdb893835b650bbfe3e31e8197c3af6546
 Author: Giovanni Alcantara <me@giovannialcantara.com>
 Date:   Sat Sep 3 23:50:11 2016 -0500
