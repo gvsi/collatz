@@ -4,8 +4,8 @@
 *.gcno
 *.gcov
 *.plist
-collatz-tests
 Icon?
+collatz-tests
 RunCollatz
 RunCollatz.tmp
 TestCollatz
