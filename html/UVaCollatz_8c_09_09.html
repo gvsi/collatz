@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -68,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -104,10 +105,13 @@ Macros</h2></td></tr>
 <tr class="memitem:a2fd0c8b04afe9b743ed1748a94cbaee1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="UVaCollatz_8c_09_09.html#a2fd0c8b04afe9b743ed1748a94cbaee1">Collatz_h</a></td></tr>
 <tr class="separator:a2fd0c8b04afe9b743ed1748a94cbaee1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a283fd96b894129f223d39e1640e0bd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="UVaCollatz_8c_09_09.html#a5a283fd96b894129f223d39e1640e0bd">LAZY_CACHE_OPT</a></td></tr>
+<tr class="memdesc:a5a283fd96b894129f223d39e1640e0bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uses a cache to store values.  <a href="#a5a283fd96b894129f223d39e1640e0bd">More...</a><br /></td></tr>
 <tr class="separator:a5a283fd96b894129f223d39e1640e0bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa62860cb99e6eedfd8a26faca1302e7e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="UVaCollatz_8c_09_09.html#aa62860cb99e6eedfd8a26faca1302e7e">DOUBLE_ODD_STEP_OPT</a></td></tr>
+<tr class="memdesc:aa62860cb99e6eedfd8a26faca1302e7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Skips one step in the computation of cycle_length if the number is odd.  <a href="#aa62860cb99e6eedfd8a26faca1302e7e">More...</a><br /></td></tr>
 <tr class="separator:aa62860cb99e6eedfd8a26faca1302e7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6be59b8cf733825a21ea40a4bb745780"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="UVaCollatz_8c_09_09.html#a6be59b8cf733825a21ea40a4bb745780">HALF_SPACE_CHECK</a></td></tr>
+<tr class="memdesc:a6be59b8cf733825a21ea40a4bb745780"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only checks half the range if the property discussed in class is satisfied.  <a href="#a6be59b8cf733825a21ea40a4bb745780">More...</a><br /></td></tr>
 <tr class="separator:a6be59b8cf733825a21ea40a4bb745780"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -121,6 +125,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a0ac646d2122741f9a9a52201bf9551cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="UVaCollatz_8c_09_09.html#a0ac646d2122741f9a9a52201bf9551cc">collatz_solve</a> (istream &amp;r, ostream &amp;w)</td></tr>
 <tr class="separator:a0ac646d2122741f9a9a52201bf9551cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07d2aa6a12c90fc5db5ecc5e9845bdfa"><td class="memItemLeft" align="right" valign="top">vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="UVaCollatz_8c_09_09.html#a07d2aa6a12c90fc5db5ecc5e9845bdfa">cache</a> (1000001)</td></tr>
+<tr class="memdesc:a07d2aa6a12c90fc5db5ecc5e9845bdfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">A cache able to store values of <code>cycle_length</code> up to <code>cycle_length(1000000)</code>`.  <a href="#a07d2aa6a12c90fc5db5ecc5e9845bdfa">More...</a><br /></td></tr>
 <tr class="separator:a07d2aa6a12c90fc5db5ecc5e9845bdfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a697abe0e7d6fd56c3b8971fd73e6624d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="UVaCollatz_8c_09_09.html#a697abe0e7d6fd56c3b8971fd73e6624d">cycle_length</a> (int n)</td></tr>
 <tr class="separator:a697abe0e7d6fd56c3b8971fd73e6624d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,6 +157,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Skips one step in the computation of cycle_length if the number is odd. </p>
+
 </div>
 </div>
 <a class="anchor" id="a6be59b8cf733825a21ea40a4bb745780"></a>
@@ -164,6 +171,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Only checks half the range if the property discussed in class is satisfied. </p>
+
 </div>
 </div>
 <a class="anchor" id="a5a283fd96b894129f223d39e1640e0bd"></a>
@@ -175,6 +184,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Uses a cache to store values. </p>
 
 </div>
 </div>
@@ -192,6 +203,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A cache able to store values of <code>cycle_length</code> up to <code>cycle_length(1000000)</code>`. </p>
 
 </div>
 </div>
@@ -423,7 +436,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 8 2016 02:07:46 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 8 2016 02:18:17 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -7,20 +7,24 @@
 
 var indexSectionsWithContent =
 {
-  0: "cdhlmrtu",
-  1: "crtu",
-  2: "cmt",
-  3: "cdhl",
-  4: "c"
+  0: "cdefhijlmnoprstu",
+  1: "t",
+  2: "crtu",
+  3: "cimt",
+  4: "cefijnopst",
+  5: "cdhl",
+  6: "c"
 };
 
 var indexSectionNames =
 {
   0: "all",
-  1: "files",
-  2: "functions",
-  3: "defines",
-  4: "pages"
+  1: "namespaces",
+  2: "files",
+  3: "functions",
+  4: "variables",
+  5: "defines",
+  6: "pages"
 };
 
 function convertToId(search)
