@@ -7,10 +7,10 @@
 
 var indexSectionsWithContent =
 {
-  0: "cdlmrtu",
+  0: "cdhlmrtu",
   1: "crtu",
   2: "cmt",
-  3: "cdl",
+  3: "cdhl",
   4: "c"
 };
 

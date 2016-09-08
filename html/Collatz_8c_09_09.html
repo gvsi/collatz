@@ -102,18 +102,26 @@ Include dependency graph for Collatz.c++:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a5a283fd96b894129f223d39e1640e0bd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Collatz_8c_09_09.html#a5a283fd96b894129f223d39e1640e0bd">LAZY_CACHE_OPT</a></td></tr>
+<tr class="memdesc:a5a283fd96b894129f223d39e1640e0bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uses a cache to store values.  <a href="#a5a283fd96b894129f223d39e1640e0bd">More...</a><br /></td></tr>
 <tr class="separator:a5a283fd96b894129f223d39e1640e0bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa62860cb99e6eedfd8a26faca1302e7e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Collatz_8c_09_09.html#aa62860cb99e6eedfd8a26faca1302e7e">DOUBLE_ODD_STEP_OPT</a></td></tr>
+<tr class="memdesc:aa62860cb99e6eedfd8a26faca1302e7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Skips one step in the computation of cycle_length if the number is odd.  <a href="#aa62860cb99e6eedfd8a26faca1302e7e">More...</a><br /></td></tr>
 <tr class="separator:aa62860cb99e6eedfd8a26faca1302e7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6be59b8cf733825a21ea40a4bb745780"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Collatz_8c_09_09.html#a6be59b8cf733825a21ea40a4bb745780">HALF_SPACE_CHECK</a></td></tr>
+<tr class="memdesc:a6be59b8cf733825a21ea40a4bb745780"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only checks half the range if the property discussed in class is satisfied.  <a href="#a6be59b8cf733825a21ea40a4bb745780">More...</a><br /></td></tr>
+<tr class="separator:a6be59b8cf733825a21ea40a4bb745780"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a07d2aa6a12c90fc5db5ecc5e9845bdfa"><td class="memItemLeft" align="right" valign="top">vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Collatz_8c_09_09.html#a07d2aa6a12c90fc5db5ecc5e9845bdfa">cache</a> (1000001)</td></tr>
+<tr class="memdesc:a07d2aa6a12c90fc5db5ecc5e9845bdfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">A cache able to store values of <code>cycle_length</code> up to <code>cycle_length(1000000)</code>`.  <a href="#a07d2aa6a12c90fc5db5ecc5e9845bdfa">More...</a><br /></td></tr>
 <tr class="separator:a07d2aa6a12c90fc5db5ecc5e9845bdfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a823e2bd90252dff77770a5a7bebdc538"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Collatz_8c_09_09.html#a823e2bd90252dff77770a5a7bebdc538">collatz_read</a> (istream &amp;r, int &amp;i, int &amp;j)</td></tr>
 <tr class="separator:a823e2bd90252dff77770a5a7bebdc538"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6cb3bee19eb7ef4eb638d771f5913351"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Collatz_8c_09_09.html#a6cb3bee19eb7ef4eb638d771f5913351">cycle_length</a> (int64_t n)</td></tr>
-<tr class="separator:a6cb3bee19eb7ef4eb638d771f5913351"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a697abe0e7d6fd56c3b8971fd73e6624d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Collatz_8c_09_09.html#a697abe0e7d6fd56c3b8971fd73e6624d">cycle_length</a> (int n)</td></tr>
+<tr class="separator:a697abe0e7d6fd56c3b8971fd73e6624d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc800a888ea95f54bdef3ba8821b15b5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Collatz_8c_09_09.html#afc800a888ea95f54bdef3ba8821b15b5">max_cycle_length</a> (int lower_bound, int upper_bound)</td></tr>
+<tr class="separator:afc800a888ea95f54bdef3ba8821b15b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b0d3827a619c18aa4d96b8ee8b1c47d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Collatz_8c_09_09.html#a0b0d3827a619c18aa4d96b8ee8b1c47d">collatz_eval</a> (int i, int j)</td></tr>
 <tr class="separator:a0b0d3827a619c18aa4d96b8ee8b1c47d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeda0b7ea3e40e1e7487ccc436f33a559"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Collatz_8c_09_09.html#aeda0b7ea3e40e1e7487ccc436f33a559">collatz_print</a> (ostream &amp;w, int i, int j, int v)</td></tr>
@@ -132,6 +140,22 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Skips one step in the computation of cycle_length if the number is odd. </p>
+
+</div>
+</div>
+<a class="anchor" id="a6be59b8cf733825a21ea40a4bb745780"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HALF_SPACE_CHECK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Only checks half the range if the property discussed in class is satisfied. </p>
+
 </div>
 </div>
 <a class="anchor" id="a5a283fd96b894129f223d39e1640e0bd"></a>
@@ -143,6 +167,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Uses a cache to store values. </p>
 
 </div>
 </div>
@@ -160,6 +186,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A cache able to store values of <code>cycle_length</code> up to <code>cycle_length(1000000)</code>`. </p>
 
 </div>
 </div>
@@ -318,14 +346,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a6cb3bee19eb7ef4eb638d771f5913351"></a>
+<a class="anchor" id="a697abe0e7d6fd56c3b8971fd73e6624d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">int cycle_length </td>
           <td>(</td>
-          <td class="paramtype">int64_t&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>n</em></td><td>)</td>
           <td></td>
         </tr>
@@ -340,10 +368,43 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="afc800a888ea95f54bdef3ba8821b15b5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int max_cycle_length </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lower_bound</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>upper_bound</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>is a helper function that calculates that maximum cycle length between lower_bound and upper_bound inclusive </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lower_bound</td><td>a positive integer </td></tr>
+    <tr><td class="paramname">upper_bound</td><td>a positive integer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Sep 7 2016 02:25:24 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 8 2016 02:07:46 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

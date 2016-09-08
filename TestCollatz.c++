@@ -39,11 +39,6 @@ TEST(CollatzFixture, read) {
 // eval
 // ----
 
-TEST(CollatzFixture, eval_1) {
-  const int v = collatz_eval(1, 10);
-  ASSERT_EQ(20, v);
-}
-
 TEST(CollatzFixture, eval_2) {
   const int v = collatz_eval(100, 200);
   ASSERT_EQ(125, v);
@@ -100,6 +95,9 @@ TEST(CollatzFixture, solve) {
   ASSERT_EQ("1 10 20\n100 200 125\n201 210 89\n900 1000 174\n", w.str());
 }
 
+/**
+ * verifies that max_cycle_length(a, b) == max_cycle_length(b, a)
+ */
 TEST(CollatzFixture, solve_inverse) {
   istringstream r("4944 48637\n48637 4944\n");
   ostringstream w;
@@ -107,6 +105,9 @@ TEST(CollatzFixture, solve_inverse) {
   ASSERT_EQ("4944 48637 324\n48637 4944 324\n", w.str());
 }
 
+/**
+ * verifies that max_cycle_length(a, a) == cycle_length(a)
+ */
 TEST(CollatzFixture, solve_single) {
   istringstream r("247272 247272\n");
   ostringstream w;
