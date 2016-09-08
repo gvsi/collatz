@@ -8,9 +8,6 @@
 // includes
 // --------
 
-#define LAZY_CACHE_OPT
-#define DOUBLE_ODD_STEP_OPT
-
 #include <cassert>  // assert
 #include <iostream> // endl, istream, ostream
 #include <vector>
@@ -18,9 +15,24 @@
 
 #include "Collatz.h"
 
+// --------
+// optimizations
+// --------
+
+/// Uses a cache to store values
+#define LAZY_CACHE_OPT
+
+/// Skips one step in the computation of cycle_length if the number is odd
+#define DOUBLE_ODD_STEP_OPT
+
+/// Only checks half the range if the property discussed in class is satisfied
+#define HALF_SPACE_CHECK
+
 using namespace std;
 
 #ifdef DOUBLE_ODD_STEP_OPT
+/// A cache able to store values of `cycle_length` up to
+/// `cycle_length(1000000)``
 vector<int> cache(1000001);
 #endif
 
@@ -35,19 +47,18 @@ bool collatz_read(istream &r, int &i, int &j) {
   return true;
 }
 
-/*!
+/**
  * calculates the cycle length of a positive integer
  * @param n a positive integer
  */
 
-int cycle_length(int64_t n) {
+int cycle_length(int n) {
   // cout << "Calculating cycle_length of " << n << endl;
   assert(n > 0);
-
   int c;
 
 #ifdef LAZY_CACHE_OPT
-  bool cacheFit = n < cache.size();
+  bool cacheFit = n < (int)cache.size();
 
   if (cacheFit && cache.at(n)) {
     // Cache hit
@@ -57,14 +68,11 @@ int cycle_length(int64_t n) {
     if ((n % 2) == 0) {
       c = 1 + cycle_length(n >> 1);
     } else {
-      int64_t next;
 
 #ifdef DOUBLE_ODD_STEP_OPT
-      next = (3 * n + 1) >> 1; // combines two steps
-      c = 2 + cycle_length(next);
+      c = 2 + cycle_length((3 * n + 1) >> 1); // combines two steps
 #else
-      next = (3 * n + 1); // combines two steps
-      c = 1 + cycle_length(next);
+      c = 1 + cycle_length((3 * n + 1));
 #endif
     }
 
@@ -74,6 +82,7 @@ int cycle_length(int64_t n) {
     }
   }
 #else
+  // Standard algorithm discussed in class
   c = 1;
   while (n > 1) {
     if ((n % 2) == 0)
@@ -88,36 +97,56 @@ int cycle_length(int64_t n) {
   return c;
 }
 
+/**
+ * is a helper function that calculates that maximum cycle length between
+ * lower_bound and upper_bound inclusive
+ * @param lower_bound a positive integer
+ * @param upper_bound a positive integer
+ */
+
+int max_cycle_length(int lower_bound, int upper_bound) {
+  assert(lower_bound > 0);
+  assert(upper_bound > 0);
+  int max_length = 1;
+
+  // loop through the values in the range, storing the max as we go
+  for (int i = lower_bound; i <= upper_bound; ++i) {
+    int length = cycle_length(i);
+    if (length > max_length)
+      max_length = length;
+  }
+  assert(max_length > 0);
+  return max_length;
+}
 // ------------
 // collatz_eval
 // ------------
 
 int collatz_eval(int i, int j) {
-  int max, min;
-  if (i > j) {
-    max = i;
-    min = j;
-  } else {
-    max = j;
-    min = i;
-  }
-
+  // Set base value of 1; i.e. cycle_length(1) == 1
   cache[1] = 1;
 
-  assert(min <= max);
-
-  int m = (max / 2) + 1;
-  if (min < m) {
-    return collatz_eval(m, max);
-  } else {
-    int max_length = 1;
-    for (int n = min; n <= max; n++) {
-      int length = cycle_length(n);
-      if (length > max_length)
-        max_length = length;
-    }
-    return max_length;
+  // let i <= j always
+  if (i > j) {
+    int temp = i;
+    i = j;
+    j = temp;
   }
+
+  assert(i <= j);
+
+#ifdef HALF_SPACE_CHECK
+  int m = (j / 2) + 1;
+  if (i < m) {
+    assert(i < m);
+    return collatz_eval(m, j);
+  } else {
+    assert(i >= m);
+    return max_cycle_length(i, j);
+  }
+#else
+  return max_cycle_length(i, j);
+#endif
 }
 
 // -------------
@@ -133,6 +162,7 @@ void collatz_print(ostream &w, int i, int j, int v) {
 // -------------
 
 void collatz_solve(istream &r, ostream &w) {
+
   int i;
   int j;
   while (collatz_read(r, i, j)) {
