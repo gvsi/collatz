@@ -27,7 +27,7 @@ using namespace std;
  * @param j an int
  * @return true if the read is successful, otherwise false
  */
-bool collatz_read (istream& r, int& i, int& j);
+bool collatz_read(istream &r, int &i, int &j);
 
 // ------------
 // collatz_eval
@@ -38,7 +38,7 @@ bool collatz_read (istream& r, int& i, int& j);
  * @param j the end       of the range, inclusive
  * @return the max cycle length of the range [i, j]
  */
-int collatz_eval (int i, int j);
+int collatz_eval(int i, int j);
 
 // -------------
 // collatz_print
@@ -51,7 +51,7 @@ int collatz_eval (int i, int j);
  * @param j the end       of the range, inclusive
  * @param v the max cycle length
  */
-void collatz_print (ostream& w, int i, int j, int v);
+void collatz_print(ostream &w, int i, int j, int v);
 
 // -------------
 // collatz_solve
@@ -61,7 +61,7 @@ void collatz_print (ostream& w, int i, int j, int v);
  * @param r an istream
  * @param w an ostream
  */
-void collatz_solve (istream& r, ostream& w);
+void collatz_solve(istream &r, ostream &w);
 
 #endif // Collatz_h
 // ----------------------------
@@ -80,26 +80,50 @@ void collatz_solve (istream& r, ostream& w);
 #include <stdint.h>
 
 
+// --------
+// optimazations
+// --------
+
+/// Uses a cache to store values
+#define LAZY_CACHE_OPT
+
+/// Skips one step in the computation of cycle_length if the number is odd
+#define DOUBLE_ODD_STEP_OPT
+
+/// Only checks half the range if the property discussed in class is satisfied
+#define HALF_SPACE_CHECK
+
+
 using namespace std;
+
+#ifdef DOUBLE_ODD_STEP_OPT
+/// A cache able to store values of `cycle_length` up to `cycle_length(1000000)``
+vector<int> cache(1000001);
+#endif
 
 // ------------
 // collatz_read
 // ------------
 
-vector<int> cache(3000000);
+bool collatz_read(istream &r, int &i, int &j) {
+  if (!(r >> i))
+    return false;
+  r >> j;
+  return true;
+}
 
-bool collatz_read (istream& r, int& i, int& j) {
-    if (!(r >> i))
-        return false;
-    r >> j;
-    return true;}
+/**
+ * calculates the cycle length of a positive integer
+ * @param n a positive integer
+ */
 
-int cycle_length(int64_t n) {
+int cycle_length(int n) {
   // cout << "Calculating cycle_length of " << n << endl;
   assert(n > 0);
-
   int c;
-  bool cacheFit = n < cache.size();
+
+#ifdef LAZY_CACHE_OPT
+  bool cacheFit = n < (int) cache.size();
 
   if (cacheFit && cache.at(n)) {
     // Cache hit
@@ -109,8 +133,12 @@ int cycle_length(int64_t n) {
     if ((n % 2) == 0) {
       c = 1 + cycle_length(n >> 1);
     } else {
-      int64_t next = (3 * n + 1) >> 1; // combines two steps
-      c = 2 + cycle_length(next);
+
+#ifdef DOUBLE_ODD_STEP_OPT
+      c = 2 + cycle_length((3 * n + 1) >> 1); // combines two steps
+#else
+      c = 1 + cycle_length((3 * n + 1));
+#endif
     }
 
     // Store value in cache, if it fits
@@ -118,59 +146,94 @@ int cycle_length(int64_t n) {
       cache.at(n) = c;
     }
   }
+#else
+  // Standard algorithm discussed in class
+  c = 1;
+  while (n > 1) {
+    if ((n % 2) == 0)
+      n = (n / 2);
+    else
+      n = (3 * n) + 1;
+    ++c;
+  }
+#endif
 
   assert(c > 0);
-  return c;}
+  return c;
+}
 
+/**
+ * is a helper function that calculates that maximum cycle length between lower_bound and upper_bound inclusive
+ * @param lower_bound a positive integer
+ * @param upper_bound a positive integer
+ */
+
+int max_cycle_length(int lower_bound, int upper_bound) {
+  assert(lower_bound > 0);
+  assert(upper_bound > 0);
+  int max_length = 1;
+
+  // loop through the values in the range, storing the max as we go
+  for (int i = lower_bound; i <= upper_bound; ++i) {
+    int length = cycle_length(i);
+    if (length > max_length)
+      max_length = length;
+  }
+  assert(max_length > 0);
+  return max_length;
+}
 // ------------
 // collatz_eval
 // ------------
 
-int collatz_eval (int i, int j) {
-    int max, min;
-    if (i > j) {
-      max = i;
-      min = j;
-    } else {
-      max = j;
-      min = i;
-    }
+int collatz_eval(int i, int j) {
+  // Set base value of 1; i.e. cycle_length(1) == 1
+  cache[1] = 1;
 
-    cache[1] = 1;
-
-    assert(min <= max);
-
-    int m = (max / 2) + 1;
-    if (min < m) {
-      return collatz_eval(m, max);
-    } else {
-      int max_length = 1;
-      for (int n = min; n <= max; n++) {
-        int length = cycle_length(n);
-        if (length > max_length)
-          max_length = length;
-      }
-      return max_length;
-    }
+  // let i <= j always
+  if (i > j) {
+    int temp = i;
+    i = j;
+    j = temp;
   }
+
+  assert(i <= j);
+
+#ifdef HALF_SPACE_CHECK
+  int m = (j / 2) + 1;
+  if (i < m) {
+    assert(i < m);
+    return collatz_eval(m, j);
+  } else {
+    assert(i >= m);
+    return max_cycle_length(i, j);
+  }
+#else
+  return max_cycle_length(i, j);
+#endif
+}
 
 // -------------
 // collatz_print
 // -------------
 
-void collatz_print (ostream& w, int i, int j, int v) {
-    w << i << " " << j << " " << v << endl;}
+void collatz_print(ostream &w, int i, int j, int v) {
+  w << i << " " << j << " " << v << endl;
+}
 
 // -------------
 // collatz_solve
 // -------------
 
-void collatz_solve (istream& r, ostream& w) {
-    int i;
-    int j;
-    while (collatz_read(r, i, j)) {
-        const int v = collatz_eval(i, j);
-        collatz_print(w, i, j, v);}}
+void collatz_solve(istream &r, ostream &w) {
+
+  int i;
+  int j;
+  while (collatz_read(r, i, j)) {
+    const int v = collatz_eval(i, j);
+    collatz_print(w, i, j, v);
+  }
+}
 // -------------------------------
 // projects/collatz/RunCollatz.c++
 // Copyright (C) 2016
@@ -188,7 +251,8 @@ void collatz_solve (istream& r, ostream& w) {
 // main
 // ----
 
-int main () {
-    using namespace std;
-    collatz_solve(cin, cout);
-    return 0;}
+int main() {
+  using namespace std;
+  collatz_solve(cin, cout);
+  return 0;
+}
