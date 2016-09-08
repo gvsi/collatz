@@ -60,23 +60,23 @@ TEST(CollatzFixture, eval_4) {
 }
 
 TEST(CollatzFixture, eval_5) {
-  const int v = collatz_eval(687871, 687871);
-  ASSERT_EQ(380, v);
+  const int v = collatz_eval(17717, 21404);
+  ASSERT_EQ(274, v);
 }
 
 TEST(CollatzFixture, eval_6) {
-  const int v = collatz_eval(704511, 704511);
-  ASSERT_EQ(243, v);
+  const int v = collatz_eval(28162, 81335);
+  ASSERT_EQ(351, v);
 }
 
 TEST(CollatzFixture, eval_7) {
-  const int v = collatz_eval(747291, 747291);
-  ASSERT_EQ(248, v);
+  const int v = collatz_eval(18028, 22718);
+  ASSERT_EQ(274, v);
 }
 
 TEST(CollatzFixture, eval_8) {
-  const int v = collatz_eval(753663, 753663);
-  ASSERT_EQ(331, v);
+  const int v = collatz_eval(20033, 40174);
+  ASSERT_EQ(324, v);
 }
 
 // -----
@@ -101,15 +101,15 @@ TEST(CollatzFixture, solve) {
 }
 
 TEST(CollatzFixture, solve_inverse) {
-  istringstream r("727364 50\n50 727364\n");
+  istringstream r("4944 48637\n48637 4944\n");
   ostringstream w;
   collatz_solve(r, w);
-  ASSERT_EQ("727364 50 509\n50 727364 509\n", w.str());
+  ASSERT_EQ("4944 48637 324\n48637 4944 324\n", w.str());
 }
 
-TEST(CollatzFixture, solve_max_range) {
-  istringstream r("1 1000000\n");
+TEST(CollatzFixture, solve_single) {
+  istringstream r("247272 247272\n");
   ostringstream w;
   collatz_solve(r, w);
-  ASSERT_EQ("1 1000000 525\n", w.str());
+  ASSERT_EQ("247272 247272 94\n", w.str());
 }
