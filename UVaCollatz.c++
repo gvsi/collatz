@@ -1,3 +1,69 @@
+// --------------------------
+// projects/collatz/Collatz.h
+// Copyright (C) 2016
+// Glenn P. Downing
+// --------------------------
+
+#ifndef Collatz_h
+#define Collatz_h
+
+// --------
+// includes
+// --------
+
+#include <iostream> // istream, ostream
+#include <string>   // string
+
+using namespace std;
+
+// ------------
+// collatz_read
+// ------------
+
+/**
+ * read two ints from r into i an j
+ * @param r an istream
+ * @param i an int
+ * @param j an int
+ * @return true if the read is successful, otherwise false
+ */
+bool collatz_read(istream &r, int &i, int &j);
+
+// ------------
+// collatz_eval
+// ------------
+
+/**
+ * @param i the beginning of the range, inclusive
+ * @param j the end       of the range, inclusive
+ * @return the max cycle length of the range [i, j]
+ */
+int collatz_eval(int i, int j);
+
+// -------------
+// collatz_print
+// -------------
+
+/**
+ * print three ints to w
+ * @param w an ostream
+ * @param i the beginning of the range, inclusive
+ * @param j the end       of the range, inclusive
+ * @param v the max cycle length
+ */
+void collatz_print(ostream &w, int i, int j, int v);
+
+// -------------
+// collatz_solve
+// -------------
+
+/**
+ * @param r an istream
+ * @param w an ostream
+ */
+void collatz_solve(istream &r, ostream &w);
+
+#endif // Collatz_h
 // ----------------------------
 // projects/collatz/Collatz.c++
 // Copyright (C) 2016
@@ -13,10 +79,9 @@
 #include <vector>
 #include <stdint.h>
 
-#include "Collatz.h"
 
 // --------
-// optimizations
+// optimazations
 // --------
 
 /// Uses a cache to store values
@@ -28,11 +93,11 @@
 /// Only checks half the range if the property discussed in class is satisfied
 #define HALF_SPACE_CHECK
 
+
 using namespace std;
 
 #ifdef DOUBLE_ODD_STEP_OPT
-/// A cache able to store values of `cycle_length` up to
-/// `cycle_length(1000000)``
+/// A cache able to store values of `cycle_length` up to `cycle_length(1000000)``
 vector<int> cache(1000001);
 #endif
 
@@ -58,7 +123,7 @@ int cycle_length(int n) {
   int c;
 
 #ifdef LAZY_CACHE_OPT
-  bool cacheFit = n < (int)cache.size();
+  bool cacheFit = n < (int) cache.size();
 
   if (cacheFit && cache.at(n)) {
     // Cache hit
@@ -98,8 +163,7 @@ int cycle_length(int n) {
 }
 
 /**
- * is a helper function that calculates that maximum cycle length between
- * lower_bound and upper_bound inclusive
+ * is a helper function that calculates that maximum cycle length between lower_bound and upper_bound inclusive
  * @param lower_bound a positive integer
  * @param upper_bound a positive integer
  */
@@ -169,4 +233,26 @@ void collatz_solve(istream &r, ostream &w) {
     const int v = collatz_eval(i, j);
     collatz_print(w, i, j, v);
   }
+}
+// -------------------------------
+// projects/collatz/RunCollatz.c++
+// Copyright (C) 2016
+// Glenn P. Downing
+// -------------------------------
+
+// --------
+// includes
+// --------
+
+#include <iostream> // cin, cout
+
+
+// ----
+// main
+// ----
+
+int main() {
+  using namespace std;
+  collatz_solve(cin, cout);
+  return 0;
 }

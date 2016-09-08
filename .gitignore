@@ -10,6 +10,7 @@ RunCollatz
 RunCollatz.tmp
 TestCollatz
 TestCollatz.tmp
-UVaCollatz.c++
 Doxyfile
 doxygen_sqlite3.db
+latex/
+Dockerfile

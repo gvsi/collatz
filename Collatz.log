@@ -1,3 +1,81 @@
+commit 4ec8e6431102ffc06472f3ccc483d0c2e89159f0
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Wed Sep 7 20:24:34 2016 -0500
+
+    Update tests to non-overflowing values
+
+commit e283dd40dd6caab9e19de96f59d4f0d0959db405
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Wed Sep 7 20:10:17 2016 -0500
+
+    Update .gitignore to conform to Piazza file list
+
+commit fbbbbbe37b46b75f401bc7ec64fd0196b22eb0c2
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Wed Sep 7 20:03:34 2016 -0500
+
+    Add HTML files, gitignore latex
+
+commit dd2355a4be80f0c9f0d4604bd7a542b70d3bb512
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Sun Sep 4 18:32:00 2016 -0500
+
+    Fix cycle length bug, define optimizations
+
+commit 5ca62d42ee394c702dd5ee15c5425ab3c7f3b150
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Sun Sep 4 18:31:42 2016 -0500
+
+    Update Github log
+
+commit fc4630aae5803554c759daeda26a38034676b27f
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Sun Sep 4 18:31:32 2016 -0500
+
+    Add HTML doxygen (pt 2)
+
+commit d3e7f5a12eb8ff4a25c08a3c5adfce6582b7961c
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Sun Sep 4 18:31:20 2016 -0500
+
+    Add doxygen HTML
+
+commit 86f9c6c67788ccf7bcc967417a678e87bf796f95
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Sun Sep 4 15:57:51 2016 -0500
+
+    Revert .gitignore
+
+commit 2cfc80830259e68b4a8015a747ad5b86e533a67c
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Sun Sep 4 15:55:04 2016 -0500
+
+    Update .gitignore (includes collatz-tests)
+
+commit b31284b1e87d4a9f5e8655d595258617d6240455
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Sun Sep 4 15:46:11 2016 -0500
+
+    Update acceptance tests
+
+commit ba24d362a318b265afc3537aa740d08ad2df4738
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Sun Sep 4 15:46:01 2016 -0500
+
+    Format with clang, update Dockerfile
+
+commit cb20a1d19fa914fd8ff8e31e79611dc9c10c00ad
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Sun Sep 4 15:45:13 2016 -0500
+
+    Move test file into ignored directory
+
+commit 6e50424c389888695e7414c6faed4cd687345ac1
+Author: Giovanni Alcantara <me@giovannialcantara.com>
+Date:   Sun Sep 4 15:44:23 2016 -0500
+
+    Tag optimizations, clang-format (closes #10 and #11)
+
 commit 84e5c2fdb893835b650bbfe3e31e8197c3af6546
 Author: Giovanni Alcantara <me@giovannialcantara.com>
 Date:   Sat Sep 3 23:50:11 2016 -0500
