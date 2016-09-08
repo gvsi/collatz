@@ -13,3 +13,5 @@ TestCollatz.tmp
 UVaCollatz.c++
 Doxyfile
 doxygen_sqlite3.db
+latex/
+refman.tex
